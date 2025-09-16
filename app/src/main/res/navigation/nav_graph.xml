@@ -7,22 +7,24 @@
 
     <fragment
         android:id="@+id/FirstFragment"
-        android:name="com.example.tp1singleviewapp.FirstFragment"
+        android:name="com.example.tp1singleviewapp.view.FirstFragment"
         android:label="@string/first_fragment_label"
         tools:layout="@layout/fragment_first">
-
         <action
-            android:id="@+id/action_FirstFragment_to_SecondFragment"
+            android:id="@+id/first_to_second"
             app:destination="@id/SecondFragment" />
     </fragment>
     <fragment
         android:id="@+id/SecondFragment"
-        android:name="com.example.tp1singleviewapp.SecondFragment"
+        android:name="com.example.tp1singleviewapp.view.SecondFragment"
         android:label="@string/second_fragment_label"
         tools:layout="@layout/fragment_second">
-
         <action
-            android:id="@+id/action_SecondFragment_to_FirstFragment"
+            android:id="@+id/second_to_first"
             app:destination="@id/FirstFragment" />
+        <argument
+            android:name="user"
+            app:argType="com.example.tp1singleviewapp.model.User"
+            app:nullable="true" />
     </fragment>
 </navigation>

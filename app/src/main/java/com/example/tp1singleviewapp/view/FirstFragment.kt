@@ -1,24 +1,22 @@
-package com.example.tp1singleviewapp
+package com.example.tp1singleviewapp.view
 
 import android.app.DatePickerDialog
 import android.content.Context
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.view.animation.Animation
-import android.view.animation.ScaleAnimation
 import android.widget.RelativeLayout
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.ListFragment
 import androidx.navigation.fragment.findNavController
+import com.example.tp1singleviewapp.R
 import com.example.tp1singleviewapp.databinding.FragmentFirstBinding
 import com.example.tp1singleviewapp.model.User
 import com.google.android.material.textfield.TextInputLayout
 import com.hbb20.CountryCodePicker
 import java.util.Calendar
-import kotlin.math.log
 
 
 /**
@@ -114,7 +112,9 @@ class FirstFragment : Fragment() {
             countryPicker.selectedCountryName,
             birthdayLayout.editText!!.text.toString()
         )
-        findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment)
+
+        val action = FirstFragmentDirections.firstToSecond(user = user)
+        findNavController().navigate(action)
     }
 
     fun validateInputs(): Boolean {

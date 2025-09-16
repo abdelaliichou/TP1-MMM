@@ -1,11 +1,14 @@
-package com.example.tp1singleviewapp
+package com.example.tp1singleviewapp.view
 
+import com.example.tp1singleviewapp.R
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import com.example.tp1singleviewapp.databinding.FragmentSecondBinding
 
 /**
@@ -32,7 +35,16 @@ class SecondFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-            // findNavController().navigate(R.id.action_SecondFragment_to_FirstFragment)
+        val args: SecondFragmentArgs by navArgs()
+        val user = args.user
+        Log.d("dataaaaaaaaa from second fragment", user!!.name)
+        Log.d("dataaaaaaaaa from second fragment", user.surname)
+        Log.d("dataaaaaaaaa from second fragment", user.number.toString())
+        Log.d("dataaaaaaaaa from second fragment", user.country)
+        Log.d("dataaaaaaaaa from second fragment", user.birthday)
+        Log.d("dataaaaaaaaa from second fragment", user.email)
+
+        // findNavController().navigate(R.id.second_to_first)
     }
 
     override fun onDestroyView() {
