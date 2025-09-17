@@ -169,8 +169,19 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_marginTop="13dp"
-            android:layout_weight=".19"
+            android:layout_weight=".18"
+            android:background="@drawable/rounded_edges"
+            android:backgroundTint="@color/mainblue"
             android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                app:tint="#7C7C7C"
+                android:layout_marginLeft="5dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginRight="15dp"
+                android:src="@drawable/phone" />
 
             <com.hbb20.CountryCodePicker
                 android:id="@+id/country_layout"
@@ -180,7 +191,8 @@
                 android:layout_weight=".5"
                 android:background="@drawable/rounded_edges"
                 android:backgroundTint="@color/white"
-                android:padding="5dp"
+                app:ccp_defaultNameCode="FR"
+                android:padding="3dp"
                 app:ccp_textSize="13dp" />
 
             <com.google.android.material.textfield.TextInputLayout
@@ -189,7 +201,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginLeft="20dp"
+                android:layout_marginLeft="10dp"
                 android:layout_weight="1"
                 android:textColorHint="#7C7C7C"
                 app:boxBackgroundColor="@color/mainblue"
@@ -201,9 +213,7 @@
                 app:boxStrokeWidth="0dp"
                 app:endIconMode="clear_text"
                 app:endIconTint="#636363"
-                app:hintTextColor="@color/black"
-                app:startIconDrawable="@drawable/phone"
-                app:startIconTint="#7C7C7C">
+                app:hintTextColor="@color/black">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
@@ -237,7 +247,7 @@
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
                 android:layout_margin="2dp"
-                android:text="Inscription"
+                android:text="Accedez"
                 android:textColor="#ffffff"
                 android:textSize="20dp"
                 android:textStyle="bold" />

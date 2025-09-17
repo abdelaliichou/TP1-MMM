@@ -9,6 +9,6 @@ data class User (
     val surname: String,
     val email: String,
     val number: String,
-    val country: String,
+    var country: String,
     val birthday: String
 ): Parcelable

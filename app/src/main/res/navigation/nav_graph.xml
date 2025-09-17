@@ -12,8 +12,23 @@
         tools:layout="@layout/fragment_first">
         <action
             android:id="@+id/first_to_second"
-            app:destination="@id/SecondFragment" />
+            app:destination="@id/viewModelFragment" />
     </fragment>
+
+    <fragment
+        android:id="@+id/viewModelFragment"
+        android:name="com.example.tp1singleviewapp.view.ViewModelFragment"
+        android:label="@string/viewmodel_fragment_label"
+        tools:layout="@layout/fragment_view_model">
+        <action
+            android:id="@+id/viewmodel_to_second"
+            app:destination="@id/SecondFragment" />
+        <argument
+            android:name="user"
+            app:argType="com.example.tp1singleviewapp.model.User"
+            app:nullable="true" />
+    </fragment>
+
     <fragment
         android:id="@+id/SecondFragment"
         android:name="com.example.tp1singleviewapp.view.SecondFragment"
