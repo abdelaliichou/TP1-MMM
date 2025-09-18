@@ -14,6 +14,7 @@
     <color name="mainyellow">#FFB64A</color>
     <color name="mainyellow2">#C2FFB64A</color>
     <color name="fontmain">#0D1340</color>
+    <color name="fontmain4">#1A2262</color>
     <color name="fontmain2">#C40D1340</color>
     <color name="fontmain3">#99DBDFFF</color>
     <color name="colorfirst">#1a1a1a</color>
@@ -25,5 +26,6 @@
     <color name="colorgray">#A6DFDFDF</color>
     <color name="edite_text_hint_color">#B7474747</color>
     <color name="green">#6CFF49</color>
+    <color name="green2">#58CA3D</color>
     <color name="deliveryText">#2b2b2b</color>
 </resources>

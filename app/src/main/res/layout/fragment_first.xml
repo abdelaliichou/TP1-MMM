@@ -244,7 +244,7 @@
             android:layout_weight=".165"
             android:layout_marginTop="15dp"
             android:background="@drawable/rounded_edges"
-            android:backgroundTint="@color/mainyellow2"
+            android:backgroundTint="@color/fontmain4"
             android:clickable="true"
             android:focusable="true"
             android:foreground="?android:attr/selectableItemBackground">
@@ -254,7 +254,7 @@
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
                 android:text="Accedez au infos"
-                android:textColor="@color/black"
+                android:textColor="@color/white"
                 android:textSize="18dp"
                 android:textStyle="bold" />
         </RelativeLayout>

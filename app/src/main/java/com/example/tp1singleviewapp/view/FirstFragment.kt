@@ -8,10 +8,12 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.tp1singleviewapp.animations.ISTICAnimation
 import com.example.tp1singleviewapp.databinding.FragmentFirstBinding
 import com.example.tp1singleviewapp.model.User
+import com.example.tp1singleviewapp.viewModel.SharedUserViewModel
 import java.util.Calendar
 
 class FirstFragment : Fragment() {
@@ -25,6 +27,9 @@ class FirstFragment : Fragment() {
     lateinit var country: String
     private var _binding: FragmentFirstBinding? = null
     private val binding get() = _binding!!
+
+    private lateinit var sharedUserViewModel: SharedUserViewModel
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -41,6 +46,12 @@ class FirstFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        // initialize the shared viewmodel variable, this page is the one who will set the shared value
+        sharedUserViewModel = ViewModelProvider(requireActivity()).get(
+            SharedUserViewModel::class.java
+        )
+
         applyAnimations()
         onClicks(view)
     }
@@ -80,6 +91,15 @@ class FirstFragment : Fragment() {
         }
 
         binding.infosButton.setOnClickListener {
+            if (!validateInputs()) {
+                Toast.makeText(
+                    view.context,
+                    "Please enter all your data!",
+                    Toast.LENGTH_LONG
+                ).show()
+                return@setOnClickListener
+            }
+            
             navigate(1)
         }
 
@@ -94,22 +114,31 @@ class FirstFragment : Fragment() {
     }
 
     fun navigate(index: Int) {
+
+        val user = User(
+            name,
+            surname,
+            email,
+            phone,
+            country,
+            birthday
+        )
+
         if (index == 0) {
+            // passing the user as a parameter to the second fragment
             findNavController().navigate(FirstFragmentDirections.firstToViewmodel(
-                    user = User(
-                        name,
-                        surname,
-                        email,
-                        phone,
-                        country,
-                        birthday
-                    )
+                    user = user
                 )
             )
             return
         }
 
-        findNavController().navigate(FirstFragmentDirections.firstToInfo(user = null))
+        // not passing anything to the second fragment, instead, we will update the shared user value
+        sharedUserViewModel.setUser(user)
+        findNavController().navigate(FirstFragmentDirections.firstToInfo(
+                user = null
+            )
+        )
     }
 
     fun showBirthdayPicker(context: Context) {

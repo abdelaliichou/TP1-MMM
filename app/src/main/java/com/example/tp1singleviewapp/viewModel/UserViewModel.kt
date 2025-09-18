@@ -3,7 +3,6 @@ package com.example.tp1singleviewapp.viewModel
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.tp1singleviewapp.model.User
-import kotlin.text.isEmpty
 
 class UserViewModel : ViewModel() {
 
