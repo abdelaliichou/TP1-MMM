@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/FirstFragment">
+    app:startDestination="@id/MusicFragment">
 
     <fragment
         android:id="@+id/FirstFragment"
@@ -38,11 +38,18 @@
         android:label="@string/second_fragment_label"
         tools:layout="@layout/fragment_second">
         <action
-            android:id="@+id/second_to_first"
-            app:destination="@id/FirstFragment" />
+            android:id="@+id/second_to_music"
+            app:destination="@id/MusicFragment" />
         <argument
             android:name="user"
             app:argType="com.example.tp1singleviewapp.model.User"
             app:nullable="true" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/MusicFragment"
+        android:name="com.example.tp1singleviewapp.view.MusicFragment"
+        android:label="@string/music_fragment_label"
+        tools:layout="@layout/fragment_music">
     </fragment>
 </navigation>
