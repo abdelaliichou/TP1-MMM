@@ -3,6 +3,7 @@ package com.example.tp1singleviewapp.view
 import android.app.DatePickerDialog
 import android.content.Context
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -10,9 +11,12 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
+import com.example.tp1singleviewapp.animations.ISTICAnimation
 import com.example.tp1singleviewapp.databinding.FragmentViewModelBinding
 import com.example.tp1singleviewapp.viewModel.UserViewModel
 import java.util.Calendar
+import kotlin.getValue
 
 class ViewModelFragment : Fragment() {
 
@@ -43,6 +47,18 @@ class ViewModelFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         onClicks(view)
+        receiveData()
+    }
+
+    fun receiveData() {
+        val args: ViewModelFragmentArgs by navArgs()
+        val user = args.user
+        Log.d("DATA from first fragment", user!!.name)
+        Log.d("DATA from first fragment", user.surname)
+        Log.d("DATA from first fragment", user.number)
+        Log.d("DATA from first fragment", user.country)
+        Log.d("DATA from first fragment", user.birthday)
+        Log.d("DATA from first fragment", user.email)
     }
 
     fun onClicks(view: View) {

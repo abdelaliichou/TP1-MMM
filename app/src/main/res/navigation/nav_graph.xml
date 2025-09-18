@@ -11,8 +11,11 @@
         android:label="@string/first_fragment_label"
         tools:layout="@layout/fragment_first">
         <action
-            android:id="@+id/first_to_second"
+            android:id="@+id/first_to_viewmodel"
             app:destination="@id/viewModelFragment" />
+        <action
+            android:id="@+id/first_to_info"
+            app:destination="@id/SecondFragment" />
     </fragment>
 
     <fragment

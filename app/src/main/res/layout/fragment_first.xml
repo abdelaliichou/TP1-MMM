@@ -40,7 +40,7 @@
             android:id="@+id/main_img"
             android:layout_width="200dp"
             android:layout_height="0dp"
-            android:layout_weight=".6"
+            android:layout_weight=".55"
             android:src="@drawable/istic_black" />
 
         <com.google.android.material.textfield.TextInputLayout
@@ -166,6 +166,7 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <LinearLayout
+            android:id="@+id/phone_parent_layout"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_marginTop="13dp"
@@ -175,8 +176,8 @@
             android:orientation="horizontal">
 
             <ImageView
-                android:layout_width="24dp"
-                android:layout_height="24dp"
+                android:layout_width="23dp"
+                android:layout_height="23dp"
                 app:tint="#7C7C7C"
                 android:layout_marginLeft="5dp"
                 android:layout_gravity="center_vertical"
@@ -185,44 +186,28 @@
 
             <com.hbb20.CountryCodePicker
                 android:id="@+id/country_layout"
-                android:layout_width="0dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
-                android:layout_weight=".5"
                 android:background="@drawable/rounded_edges"
+                android:layout_marginRight="15dp"
                 android:backgroundTint="@color/white"
                 app:ccp_defaultNameCode="FR"
                 android:padding="3dp"
                 app:ccp_textSize="13dp" />
 
-            <com.google.android.material.textfield.TextInputLayout
+            <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/phone_layout"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginLeft="10dp"
                 android:layout_weight="1"
+                android:background="@drawable/rounded_edges"
+                android:backgroundTint="@color/mainblue"
+                android:layout_height="wrap_content"
                 android:textColorHint="#7C7C7C"
-                app:boxBackgroundColor="@color/mainblue"
-                app:boxCornerRadiusBottomEnd="10dp"
-                app:boxCornerRadiusBottomStart="10dp"
-                app:boxCornerRadiusTopEnd="10dp"
-                app:boxCornerRadiusTopStart="10dp"
-                app:boxStrokeColor="@color/darkblue3"
-                app:boxStrokeWidth="0dp"
-                app:endIconMode="clear_text"
-                app:endIconTint="#636363"
-                app:hintTextColor="@color/black">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:hint="Phone number "
-                    android:inputType="number"
-                    android:textColor="@color/fontmain"
-                    android:textSize="14dp" />
-            </com.google.android.material.textfield.TextInputLayout>
+                android:hint="Phone number "
+                android:inputType="number"
+                android:textColor="@color/fontmain"
+                android:textSize="15dp" />
 
         </LinearLayout>
 
@@ -246,17 +231,38 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
-                android:layout_margin="2dp"
-                android:text="Accedez"
+                android:text="Accedez au ViewModel"
                 android:textColor="#ffffff"
-                android:textSize="20dp"
+                android:textSize="18dp"
+                android:textStyle="bold" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/infos_button"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight=".165"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/rounded_edges"
+            android:backgroundTint="@color/mainyellow2"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?android:attr/selectableItemBackground">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="Accedez au infos"
+                android:textColor="@color/black"
+                android:textSize="18dp"
                 android:textStyle="bold" />
         </RelativeLayout>
 
         <Space
             android:layout_width="wrap_content"
             android:layout_height="0dp"
-            android:layout_weight="0.3" />
+            android:layout_weight="0.2" />
 
     </LinearLayout>
 

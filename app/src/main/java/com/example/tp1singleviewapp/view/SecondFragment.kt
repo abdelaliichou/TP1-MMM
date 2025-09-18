@@ -1,5 +1,8 @@
 package com.example.tp1singleviewapp.view
 
+import android.graphics.RenderEffect
+import android.graphics.Shader
+import android.os.Build
 import com.example.tp1singleviewapp.R
 import android.os.Bundle
 import android.util.Log
@@ -9,6 +12,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
+import com.example.tp1singleviewapp.animations.ISTICAnimation
 import com.example.tp1singleviewapp.databinding.FragmentSecondBinding
 
 /**
@@ -34,17 +38,34 @@ class SecondFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        applyAnimations()
+        receiveData()
+        // binding.buttonSecond.setOnClickListener {  findNavController().navigate(R.id.second_to_first) }
+    }
 
+    fun receiveData() {
         val args: SecondFragmentArgs by navArgs()
         val user = args.user
-        Log.d("dataaaaaaaaa from second fragment", user!!.name)
-        Log.d("dataaaaaaaaa from second fragment", user.surname)
-        Log.d("dataaaaaaaaa from second fragment", user.number.toString())
-        Log.d("dataaaaaaaaa from second fragment", user.country)
-        Log.d("dataaaaaaaaa from second fragment", user.birthday)
-        Log.d("dataaaaaaaaa from second fragment", user.email)
+        if (user == null) return
 
-        // findNavController().navigate(R.id.second_to_first)
+        Log.d("DATA from viewmodel fragment", user!!.name)
+        Log.d("DATA from viewmodel fragment", user.surname)
+        Log.d("DATA from viewmodel fragment", user.number)
+        Log.d("DATA from viewmodel fragment", user.country)
+        Log.d("DATA from viewmodel fragment", user.birthday)
+        Log.d("DATA from viewmodel fragment", user.email)
+    }
+
+    fun applyAnimations() {
+        ISTICAnimation.fadeIn(binding.card, 0L)
+        ISTICAnimation.fadeIn(binding.nameLayout, 300L)
+        ISTICAnimation.fadeIn(binding.surnameLayout, 400L)
+        ISTICAnimation.fadeIn(binding.emailLayout, 500L)
+        ISTICAnimation.fadeIn(binding.birthdayLayout, 600L)
+        ISTICAnimation.fadeIn(binding.phoneLayout, 700L)
+        ISTICAnimation.fadeIn(binding.mainImg1, 800L)
+        ISTICAnimation.fadeIn(binding.mainImg2, 900L)
+        ISTICAnimation.fadeIn(binding.mainImg3, 1000L)
     }
 
     override fun onDestroyView() {

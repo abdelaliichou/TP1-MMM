@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
         <variable
@@ -11,6 +12,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        tools:context=".view.FirstFragment"
         android:background="@color/white">
 
         <ImageView
@@ -185,8 +187,8 @@
                 android:orientation="horizontal">
 
                 <ImageView
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
+                    android:layout_width="23dp"
+                    android:layout_height="23dp"
                     app:tint="#7C7C7C"
                     android:layout_marginLeft="5dp"
                     android:layout_gravity="center_vertical"
@@ -195,44 +197,28 @@
 
                 <com.hbb20.CountryCodePicker
                     android:id="@+id/country_layout"
-                    android:layout_width="0dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
-                    android:layout_weight=".5"
+                    android:layout_marginRight="15dp"
                     android:background="@drawable/rounded_edges"
                     android:backgroundTint="@color/white"
                     app:ccp_defaultNameCode="FR"
                     android:padding="3dp"
                     app:ccp_textSize="13dp" />
 
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/phone_layout"
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
                     android:layout_weight="1"
+                    android:background="@drawable/rounded_edges"
+                    android:backgroundTint="@color/mainblue"
+                    android:layout_height="wrap_content"
                     android:textColorHint="#7C7C7C"
-                    app:boxBackgroundColor="@color/mainblue"
-                    app:boxCornerRadiusBottomEnd="10dp"
-                    app:boxCornerRadiusBottomStart="10dp"
-                    app:boxCornerRadiusTopEnd="10dp"
-                    app:boxCornerRadiusTopStart="10dp"
-                    app:boxStrokeColor="@color/darkblue3"
-                    app:boxStrokeWidth="0dp"
-                    app:endIconMode="clear_text"
-                    app:endIconTint="#636363"
-                    app:hintTextColor="@color/black">
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="Phone number "
-                        android:text="@={uservm.phone}"
-                        android:inputType="number"
-                        android:textColor="@color/fontmain"
-                        android:textSize="14dp" />
-                </com.google.android.material.textfield.TextInputLayout>
+                    android:hint="Phone number "
+                    android:text="@={uservm.phone}"
+                    android:inputType="number"
+                    android:textColor="@color/fontmain"
+                    android:textSize="15dp" />
 
             </LinearLayout>
 

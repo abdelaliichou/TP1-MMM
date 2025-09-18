@@ -3,20 +3,15 @@ package com.example.tp1singleviewapp.view
 import android.app.DatePickerDialog
 import android.content.Context
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.RelativeLayout
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.ListFragment
 import androidx.navigation.fragment.findNavController
-import com.example.tp1singleviewapp.R
+import com.example.tp1singleviewapp.animations.ISTICAnimation
 import com.example.tp1singleviewapp.databinding.FragmentFirstBinding
 import com.example.tp1singleviewapp.model.User
-import com.google.android.material.textfield.TextInputLayout
-import com.hbb20.CountryCodePicker
 import java.util.Calendar
 
 class FirstFragment : Fragment() {
@@ -46,6 +41,7 @@ class FirstFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        applyAnimations()
         onClicks(view)
     }
 
@@ -53,7 +49,7 @@ class FirstFragment : Fragment() {
         email = binding.emailLayout.editText!!.text.toString()
         name = binding.nameLayout.editText!!.text.toString()
         surname = binding.prenomLayout.editText!!.text.toString()
-        phone = binding.phoneLayout.editText!!.text.toString()
+        phone = binding.phoneLayout.text.toString()
         birthday = binding.dateLayout.editText!!.text.toString()
         country = binding.countryLayout.selectedCountryName.toString()
     }
@@ -80,7 +76,11 @@ class FirstFragment : Fragment() {
                 return@setOnClickListener
             }
 
-            navigate()
+            navigate(0)
+        }
+
+        binding.infosButton.setOnClickListener {
+            navigate(1)
         }
 
         binding.dateLayout.setStartIconOnClickListener {
@@ -93,18 +93,23 @@ class FirstFragment : Fragment() {
 
     }
 
-    fun navigate() {
-        findNavController().navigate(FirstFragmentDirections.firstToSecond(
-                user = User(
-                    name,
-                    surname,
-                    email,
-                    phone,
-                    country,
-                    birthday
+    fun navigate(index: Int) {
+        if (index == 0) {
+            findNavController().navigate(FirstFragmentDirections.firstToViewmodel(
+                    user = User(
+                        name,
+                        surname,
+                        email,
+                        phone,
+                        country,
+                        birthday
+                    )
                 )
             )
-        )
+            return
+        }
+
+        findNavController().navigate(FirstFragmentDirections.firstToInfo(user = null))
     }
 
     fun showBirthdayPicker(context: Context) {
@@ -132,6 +137,19 @@ class FirstFragment : Fragment() {
         dialog.datePicker.minDate = calendar.timeInMillis
 
         dialog.show()
+    }
+
+    fun applyAnimations() {
+        ISTICAnimation.fadeIn(binding.mainImg, 0L)
+        ISTICAnimation.fadeIn(binding.nameLayout, 300L)
+        ISTICAnimation.fadeIn(binding.prenomLayout, 400L)
+        ISTICAnimation.fadeIn(binding.emailLayout, 500L)
+        ISTICAnimation.fadeIn(binding.dateLayout, 600L)
+        ISTICAnimation.fadeIn(binding.phoneParentLayout, 700L)
+        ISTICAnimation.fadeIn(binding.loginButton, 800L)
+        ISTICAnimation.fadeIn(binding.infosButton, 900L)
+        ISTICAnimation.fadeIn(binding.mainImg1, 1000L)
+        ISTICAnimation.fadeIn(binding.mainImg2, 1100L)
     }
 
     override fun onDestroyView() {
