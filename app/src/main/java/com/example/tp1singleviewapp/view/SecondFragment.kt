@@ -15,6 +15,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.tp1singleviewapp.animations.ISTICAnimation
+import com.example.tp1singleviewapp.animations.ISTICAnimation.fadeIn
 import com.example.tp1singleviewapp.databinding.FragmentSecondBinding
 import com.example.tp1singleviewapp.model.User
 import com.example.tp1singleviewapp.viewModel.SharedUserViewModel
@@ -91,15 +92,15 @@ class SecondFragment : Fragment() {
     }
 
     fun applyAnimations() {
-        ISTICAnimation.fadeIn(binding.card, 0L)
-        ISTICAnimation.fadeIn(binding.nameLayout, 300L)
-        ISTICAnimation.fadeIn(binding.surnameLayout, 400L)
-        ISTICAnimation.fadeIn(binding.emailLayout, 500L)
-        ISTICAnimation.fadeIn(binding.birthdayLayout, 600L)
-        ISTICAnimation.fadeIn(binding.phoneLayout, 700L)
-        ISTICAnimation.fadeIn(binding.mainImg1, 800L)
-        ISTICAnimation.fadeIn(binding.mainImg2, 900L)
-        ISTICAnimation.fadeIn(binding.mainImg3, 1000L)
+        binding.card.fadeIn( 0L)
+        binding.nameLayout.fadeIn( 300L)
+        binding.surnameLayout.fadeIn( 400L)
+        binding.emailLayout.fadeIn( 500L)
+        binding.birthdayLayout.fadeIn( 600L)
+        binding.phoneLayout.fadeIn( 700L)
+        binding.mainImg1.fadeIn( 800L)
+        binding.mainImg2.fadeIn( 900L)
+        binding.mainImg3.fadeIn( 1000L)
     }
 
     override fun onDestroyView() {

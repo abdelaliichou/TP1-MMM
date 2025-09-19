@@ -15,18 +15,17 @@ object ISTICAnimation {
     const val DURATION5 = 650L
     const val DURATION6 = 750L
 
-    fun fadeIn(
-        view: View,
+    fun View.fadeIn(
         delay: Long = 0L,
         duration: Long = DURATION_DEFAULT
     ) {
-        view.alpha = 0f
-        view.scaleX = 0f
-        view.scaleY = 0f
+        this.alpha = 0f
+        this.scaleX = 0f
+        this.scaleY = 0f
 
-        val alpha = ObjectAnimator.ofFloat(view, "alpha", 1f)
-        val scaleX = ObjectAnimator.ofFloat(view, "scaleX", 1f)
-        val scaleY = ObjectAnimator.ofFloat(view, "scaleY", 1f)
+        val alpha = ObjectAnimator.ofFloat(this, "alpha", 1f)
+        val scaleX = ObjectAnimator.ofFloat(this, "scaleX", 1f)
+        val scaleY = ObjectAnimator.ofFloat(this, "scaleY", 1f)
 
         alpha.duration = duration
         scaleX.duration = duration

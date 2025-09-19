@@ -6,7 +6,8 @@
     <color name="white">#FFFFFFFF</color>
     <color name="gray">#e0e0e0</color>
     <color name="gray2">#f2f2f2</color>
-    <color name="red">#d50000</color>
+    <color name="red">#FF2929</color>
+    <color name="red2">#d50000</color>
     <color name="mainblue">#F4F5F6</color>
     <color name="darkblue2">#54B6E9</color>
     <color name="darkblue3">#090909</color>
