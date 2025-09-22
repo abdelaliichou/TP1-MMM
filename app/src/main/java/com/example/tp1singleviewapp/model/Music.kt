@@ -1,7 +1,6 @@
 package com.example.tp1singleviewapp.model
 
 import android.os.Parcelable
-import com.example.tp1singleviewapp.R
 import kotlinx.parcelize.Parcelize
 
 @Parcelize

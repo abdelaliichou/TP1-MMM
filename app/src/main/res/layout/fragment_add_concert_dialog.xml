@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="25dp"
+    android:background="@drawable/rounded_edges_no_padding"
+    android:backgroundTint="@color/white"
+    android:padding="25dp"
+    tools:context=".view.AddConcertDialog">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/groupe_layout"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:textColorHint="#7C7C7C"
+            app:boxBackgroundColor="@color/mainblue"
+            app:boxCornerRadiusBottomEnd="10dp"
+            app:boxCornerRadiusBottomStart="10dp"
+            app:boxCornerRadiusTopEnd="10dp"
+            app:boxCornerRadiusTopStart="10dp"
+            app:boxStrokeColor="@color/darkblue3"
+            app:boxStrokeWidth="0dp"
+            app:endIconMode="clear_text"
+            app:endIconTint="#636363"
+            app:hintTextColor="@color/black"
+            app:startIconTint="#7C7C7C">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Groupe "
+                android:inputType="text"
+                android:textColor="@color/fontmain"
+                android:textSize="15dp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/location_layout"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:layout_marginTop="13dp"
+            android:textColorHint="#7C7C7C"
+            app:boxBackgroundColor="@color/mainblue"
+            app:boxCornerRadiusBottomEnd="10dp"
+            app:boxCornerRadiusBottomStart="10dp"
+            app:boxCornerRadiusTopEnd="10dp"
+            app:boxCornerRadiusTopStart="10dp"
+            app:boxStrokeColor="@color/darkblue3"
+            app:boxStrokeWidth="0dp"
+            app:endIconMode="clear_text"
+            app:endIconTint="#636363"
+            app:hintTextColor="@color/black"
+            app:startIconTint="#7C7C7C">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Location "
+                android:inputType="text"
+                android:textColor="@color/fontmain"
+                android:textSize="15dp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/price_layout"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:layout_marginTop="13dp"
+            android:textColorHint="#7C7C7C"
+            app:boxBackgroundColor="@color/mainblue"
+            app:boxCornerRadiusBottomEnd="10dp"
+            app:boxCornerRadiusBottomStart="10dp"
+            app:boxCornerRadiusTopEnd="10dp"
+            app:boxCornerRadiusTopStart="10dp"
+            app:boxStrokeColor="@color/darkblue3"
+            app:boxStrokeWidth="0dp"
+            app:endIconMode="clear_text"
+            app:endIconTint="#636363"
+            app:hintTextColor="@color/black"
+            app:startIconTint="#7C7C7C">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Price "
+                android:inputType="number"
+                android:textColor="@color/fontmain"
+                android:textSize="15dp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_marginTop="13dp"
+            android:layout_height="wrap_content">
+
+            <com.hbb20.CountryCodePicker
+                android:id="@+id/country_layout"
+                android:layout_width="0dp"
+                android:layout_weight=".7"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginRight="15dp"
+                android:layout_marginLeft="5dp"
+                android:background="@drawable/rounded_edges"
+                android:backgroundTint="#00DBDFFF"
+                android:padding="0dp"
+                app:ccp_defaultNameCode="FR"
+                app:ccp_textSize="13dp" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/date_layout"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="55dp"
+                android:textColorHint="#7C7C7C"
+                app:boxBackgroundColor="@color/mainblue"
+                app:boxCornerRadiusBottomEnd="10dp"
+                app:boxCornerRadiusBottomStart="10dp"
+                app:boxCornerRadiusTopEnd="10dp"
+                app:boxCornerRadiusTopStart="10dp"
+                app:boxStrokeColor="@color/darkblue3"
+                app:boxStrokeWidth="0dp"
+                app:endIconMode="clear_text"
+                app:endIconTint="#636363"
+                app:hintTextColor="@color/black"
+                app:startIconDrawable="@drawable/calendar"
+                app:startIconTint="#7C7C7C">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:cursorVisible="false"
+                    android:focusable="false"
+                    android:hint="Date de concert"
+                    android:inputType="none"
+                    android:textColor="@color/fontmain"
+                    android:textSize="15sp" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+        </LinearLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/ticket_layout"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:layout_marginTop="13dp"
+            android:textColorHint="#7C7C7C"
+            app:boxBackgroundColor="@color/mainblue"
+            app:boxCornerRadiusBottomEnd="10dp"
+            app:boxCornerRadiusBottomStart="10dp"
+            app:boxCornerRadiusTopEnd="10dp"
+            app:boxCornerRadiusTopStart="10dp"
+            app:boxStrokeColor="@color/darkblue3"
+            app:boxStrokeWidth="0dp"
+            app:endIconMode="clear_text"
+            app:endIconTint="#636363"
+            app:hintTextColor="@color/black"
+            app:startIconTint="#7C7C7C">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Tickets left"
+                android:inputType="number"
+                android:textColor="@color/fontmain"
+                android:textSize="15dp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/concert_layout"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:layout_marginTop="13dp"
+            android:textColorHint="#7C7C7C"
+            app:boxBackgroundColor="@color/mainblue"
+            app:boxCornerRadiusBottomEnd="10dp"
+            app:boxCornerRadiusBottomStart="10dp"
+            app:boxCornerRadiusTopEnd="10dp"
+            app:boxCornerRadiusTopStart="10dp"
+            app:boxStrokeColor="@color/darkblue3"
+            app:boxStrokeWidth="0dp"
+            app:endIconMode="clear_text"
+            app:endIconTint="#636363"
+            app:hintTextColor="@color/black"
+            app:startIconTint="#7C7C7C">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Concert image "
+                android:inputType="text"
+                android:textColor="@color/fontmain"
+                android:textSize="15dp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <RelativeLayout
+            android:id="@+id/add_button"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/rounded_edges"
+            android:backgroundTint="@color/fontmain4"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?android:attr/selectableItemBackground">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="Add concert"
+                android:textColor="#ffffff"
+                android:textSize="18dp"
+                android:textStyle="bold" />
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</FrameLayout>

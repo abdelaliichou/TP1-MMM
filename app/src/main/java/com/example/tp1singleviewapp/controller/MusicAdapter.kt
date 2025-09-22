@@ -8,11 +8,11 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.tp1singleviewapp.R
 import com.example.tp1singleviewapp.animations.ISTICAnimation.fadeIn
-import com.example.tp1singleviewapp.model.Music
+import com.example.tp1singleviewapp.room.Concert
 import com.google.android.material.card.MaterialCardView
 import com.squareup.picasso.Picasso
 
-class MusicAdapter(private val musicList: List<Music>) : RecyclerView.Adapter<MusicAdapter.MusicViewHolder>() {
+class MusicAdapter(private val musicList: List<Concert>) : RecyclerView.Adapter<MusicAdapter.MusicViewHolder>() {
 
     class MusicViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val groupMUSIC: TextView = view.findViewById(R.id.groupeMUSIC)

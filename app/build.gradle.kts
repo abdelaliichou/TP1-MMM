@@ -3,6 +3,7 @@ plugins {
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.navigationSafeArgs)
     id("kotlin-parcelize")
+    alias(libs.plugins.ksp) apply true
 }
 
 android {
@@ -46,6 +47,9 @@ dependencies {
     implementation(libs.androidx.lifecycle.viewmodel.ktx.v286)
     implementation(libs.androidx.lifecycle.livedata.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
+    implementation(libs.room.runtime)
+    implementation(libs.room.ktx)
+    ksp(libs.room.compiler)
     implementation(libs.picasso)
     implementation(libs.gson)
 

@@ -17,7 +17,7 @@ object ISTICAnimation {
 
     fun View.fadeIn(
         delay: Long = 0L,
-        duration: Long = DURATION_DEFAULT
+        duration: Long = DURATION2
     ) {
         this.alpha = 0f
         this.scaleX = 0f

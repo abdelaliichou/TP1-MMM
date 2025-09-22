@@ -59,6 +59,13 @@ class SecondFragment : Fragment() {
 
         applyAnimations()
         receiveData()
+        onClicks()
+    }
+
+    fun onClicks() {
+        binding.loginButton.setOnClickListener {
+            findNavController().navigate(SecondFragmentDirections.secondToMusic())
+        }
     }
 
     fun receiveData() {

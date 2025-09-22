@@ -20,53 +20,82 @@
         android:textSize="24sp"
         android:textStyle="bold" />
 
-    <RelativeLayout
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
         android:layout_margin="15dp"
-        android:layout_marginLeft="15dp"
-        android:background="@drawable/rounded_edges"
-        android:backgroundTint="#EDEDED"
-        android:padding="3dp">
+        android:layout_height="wrap_content">
 
-        <EditText
-            android:id="@+id/searchEditText"
-            android:layout_width="wrap_content"
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_weight="10"
             android:layout_height="40dp"
             android:background="@drawable/rounded_edges"
             android:backgroundTint="#EDEDED"
-            android:hint="Rechercher..."
-            android:inputType="text"
-            android:paddingStart="16dp"
-            android:paddingEnd="48dp"
-            android:textColorHint="#595959"
-            android:textSize="14sp" />
+            android:padding="3dp">
 
-        <!-- Icon on the right -->
-        <ImageView
-            android:id="@+id/clearicon"
-            app:tint="#595959"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:layout_centerVertical="true"
-            android:layout_marginRight="15dp"
-            android:layout_toLeftOf="@+id/searchIcon"
-            android:contentDescription="Search Icon"
-            android:src="@drawable/supprimer"
-            android:visibility="gone" />
+            <EditText
+                android:id="@+id/searchEditText"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:background="@drawable/rounded_edges"
+                android:backgroundTint="#EDEDED"
+                android:hint="Rechercher..."
+                android:inputType="text"
+                android:paddingStart="16dp"
+                android:paddingEnd="48dp"
+                android:textColorHint="#595959"
+                android:textSize="14sp" />
 
-        <ImageView
-            android:id="@+id/searchIcon"
-            app:tint="#595959"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:layout_alignParentEnd="true"
-            android:layout_centerVertical="true"
-            android:layout_marginRight="5dp"
-            android:contentDescription="Search Icon"
-            android:src="@drawable/loupe" />
+            <!-- Icon on the right -->
+            <ImageView
+                android:id="@+id/clearicon"
+                app:tint="#595959"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="15dp"
+                android:layout_toLeftOf="@+id/searchIcon"
+                android:contentDescription="Search Icon"
+                android:src="@drawable/supprimer"
+                android:visibility="gone" />
 
-    </RelativeLayout>
+            <ImageView
+                android:id="@+id/searchIcon"
+                app:tint="#595959"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="5dp"
+                android:contentDescription="Search Icon"
+                android:src="@drawable/loupe" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/open_button"
+            android:layout_width="0dp"
+            android:layout_weight="2.5"
+            android:layout_height="40dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="15dp"
+            android:background="@drawable/rounded_edges"
+            android:backgroundTint="@color/fontmain4"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?android:attr/selectableItemBackground">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="Add +"
+                android:textColor="#ffffff"
+                android:textSize="15dp"
+                android:textStyle="bold" />
+        </RelativeLayout>
+
+    </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"

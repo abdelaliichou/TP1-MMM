@@ -49,7 +49,7 @@
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/card"
             android:layout_width="match_parent"
-            android:layout_height="435dp"
+            android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:layout_margin="25dp"
             android:clickable="true"
@@ -235,10 +235,27 @@
                         android:textStyle="bold" />
                 </RelativeLayout>
 
-                <Space
-                    android:layout_width="wrap_content"
-                    android:layout_height="0dp"
-                    android:layout_weight="1" />
+                <RelativeLayout
+                    android:id="@+id/login_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginBottom="25dp"
+                    android:background="@drawable/rounded_edges"
+                    android:backgroundTint="@color/black"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:foreground="?android:attr/selectableItemBackground">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:text="Accedez au Home page"
+                        android:textColor="#ffffff"
+                        android:textSize="18dp"
+                        android:textStyle="bold" />
+                </RelativeLayout>
 
             </LinearLayout>
 
