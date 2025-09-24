@@ -4,6 +4,7 @@ plugins {
     alias(libs.plugins.navigationSafeArgs)
     id("kotlin-parcelize")
     alias(libs.plugins.ksp) apply true
+    id("com.google.gms.google-services")
 }
 
 android {
@@ -52,6 +53,10 @@ dependencies {
     ksp(libs.room.compiler)
     implementation(libs.picasso)
     implementation(libs.gson)
+    implementation(platform(libs.firebase.bom))
+    implementation(libs.firebase.database.ktx)
+    implementation(libs.firebase.auth.ktx)
+    implementation(libs.kotlinx.coroutines.android)
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)

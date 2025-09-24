@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "395582256444",
+    "firebase_url": "https://therapylink-3684f-default-rtdb.firebaseio.com",
+    "project_id": "therapylink-3684f",
+    "storage_bucket": "therapylink-3684f.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:395582256444:android:c4b538fa6bd1fc93011a39",
+        "android_client_info": {
+          "package_name": "com.example.tp1singleviewapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "395582256444-en6niis896cq8ahro8mudf03sp15tlha.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD2wFmlq2Mv7wMboEPkrSWYuAdnct2VPVo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "395582256444-en6niis896cq8ahro8mudf03sp15tlha.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

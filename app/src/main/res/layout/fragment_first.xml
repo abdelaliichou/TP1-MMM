@@ -40,7 +40,7 @@
             android:id="@+id/main_img"
             android:layout_width="200dp"
             android:layout_height="0dp"
-            android:layout_weight=".55"
+            android:layout_weight=".45"
             android:src="@drawable/istic_black" />
 
         <com.google.android.material.textfield.TextInputLayout
@@ -237,32 +237,62 @@
                 android:textStyle="bold" />
         </RelativeLayout>
 
-        <RelativeLayout
-            android:id="@+id/infos_button"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight=".165"
             android:layout_marginTop="15dp"
-            android:background="@drawable/rounded_edges"
-            android:backgroundTint="@color/fontmain4"
-            android:clickable="true"
-            android:focusable="true"
-            android:foreground="?android:attr/selectableItemBackground">
+            android:layout_weight=".16">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-                android:text="Accedez au infos"
-                android:textColor="@color/white"
-                android:textSize="18dp"
-                android:textStyle="bold" />
-        </RelativeLayout>
+            <RelativeLayout
+                android:id="@+id/infos_button"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                android:background="@drawable/rounded_edges"
+                android:backgroundTint="@color/fontmain4"
+                android:layout_marginRight="7dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?android:attr/selectableItemBackground">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:text="About"
+                    android:textColor="@color/white"
+                    android:textSize="18dp"
+                    android:textStyle="bold" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/firebase_button"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_marginLeft="7dp"
+                android:layout_height="match_parent"
+                android:background="@drawable/rounded_edges"
+                android:backgroundTint="@color/mainyellow"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?android:attr/selectableItemBackground">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:text="Firebase"
+                    android:textColor="@color/white"
+                    android:textSize="18dp"
+                    android:textStyle="bold" />
+            </RelativeLayout>
+
+        </LinearLayout>
 
         <Space
             android:layout_width="wrap_content"
             android:layout_height="0dp"
-            android:layout_weight="0.2" />
+            android:layout_weight="0.18" />
 
     </LinearLayout>
 

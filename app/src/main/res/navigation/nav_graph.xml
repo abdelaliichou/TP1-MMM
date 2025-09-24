@@ -16,6 +16,9 @@
         <action
             android:id="@+id/first_to_info"
             app:destination="@id/SecondFragment" />
+        <action
+            android:id="@+id/first_to_firebase"
+            app:destination="@id/FirebaseFragment" />
     </fragment>
 
     <fragment
@@ -51,5 +54,12 @@
         android:name="com.example.tp1singleviewapp.view.MusicFragment"
         android:label="@string/music_fragment_label"
         tools:layout="@layout/fragment_music">
+    </fragment>
+
+    <fragment
+        android:id="@+id/FirebaseFragment"
+        android:name="com.example.tp1singleviewapp.view.FBFragment"
+        android:label="@string/firebase_fragment"
+        tools:layout="@layout/fragment_f_b">
     </fragment>
 </navigation>

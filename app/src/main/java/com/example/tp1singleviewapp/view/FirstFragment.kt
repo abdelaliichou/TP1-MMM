@@ -3,19 +3,26 @@ package com.example.tp1singleviewapp.view
 import android.app.DatePickerDialog
 import android.content.Context
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.example.tp1singleviewapp.animations.ISTICAnimation
 import com.example.tp1singleviewapp.animations.ISTICAnimation.fadeIn
 import com.example.tp1singleviewapp.databinding.FragmentFirstBinding
 import com.example.tp1singleviewapp.model.User
 import com.example.tp1singleviewapp.viewModel.SharedUserViewModel
+import com.google.firebase.database.FirebaseDatabase
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.suspendCancellableCoroutine
 import java.util.Calendar
+import kotlin.coroutines.resume
+import kotlin.coroutines.resumeWithException
 
 class FirstFragment : Fragment() {
 
@@ -30,6 +37,8 @@ class FirstFragment : Fragment() {
     private val binding get() = _binding!!
 
     private lateinit var sharedUserViewModel: SharedUserViewModel
+
+    private val database = FirebaseDatabase.getInstance().getReference("users")
 
 
     override fun onCreateView(
@@ -73,6 +82,14 @@ class FirstFragment : Fragment() {
         if (surname.isEmpty()) return false
         if (phone.isEmpty()) return false
         if (birthday.isEmpty()) return false
+
+        Log.d("MAIIIIIL", email)
+        Log.d("MAIIIIIL", name)
+        Log.d("MAIIIIIL", surname)
+        Log.d("MAIIIIIL", phone)
+        Log.d("MAIIIIIL", birthday)
+        Log.d("MAIIIIIL", country)
+
         return true
     }
 
@@ -91,6 +108,20 @@ class FirstFragment : Fragment() {
             navigate(0)
         }
 
+        binding.firebaseButton.setOnClickListener {
+            if (!validateInputs()) {
+                Toast.makeText(
+                    view.context,
+                    "Please enter all your data!",
+                    Toast.LENGTH_LONG
+                ).show()
+                return@setOnClickListener
+            }
+
+            // adding user in the db
+            saveUserToFirebase()
+        }
+
         binding.infosButton.setOnClickListener {
             if (!validateInputs()) {
                 Toast.makeText(
@@ -100,7 +131,7 @@ class FirstFragment : Fragment() {
                 ).show()
                 return@setOnClickListener
             }
-            
+
             navigate(1)
         }
 
@@ -114,7 +145,41 @@ class FirstFragment : Fragment() {
 
     }
 
+    fun saveUserToFirebase() {
+        val user = User(
+            name,
+            surname,
+            email,
+            phone,
+            country,
+            birthday
+        )
+
+        val newUserRef = database.push()
+        newUserRef.setValue(user)
+            .addOnSuccessListener {
+                Toast.makeText(
+                requireContext(),
+                "User saved successfully!",
+                Toast.LENGTH_SHORT
+                ).show()
+                navigate(2)
+            }
+            .addOnFailureListener { e ->
+                Toast.makeText(
+                    requireContext(),
+                    "Error: ${e.message}",
+                    Toast.LENGTH_SHORT
+                ).show()
+            }
+    }
+
     fun navigate(index: Int) {
+
+        if (index == 2) {
+            findNavController().navigate(FirstFragmentDirections.firstToFirebase())
+            return
+        }
 
         val user = User(
             name,
@@ -125,19 +190,21 @@ class FirstFragment : Fragment() {
             birthday
         )
 
-        if (index == 0) {
-            // passing the user as a parameter to the second fragment
-            findNavController().navigate(FirstFragmentDirections.firstToViewmodel(
-                    user = user
+        if (index == 1) {
+            // not passing anything to the second fragment, instead, we will update the shared user value
+            sharedUserViewModel.setUser(user)
+            findNavController().navigate(
+                FirstFragmentDirections.firstToInfo(
+                    user = null
                 )
             )
             return
         }
 
-        // not passing anything to the second fragment, instead, we will update the shared user value
-        sharedUserViewModel.setUser(user)
-        findNavController().navigate(FirstFragmentDirections.firstToInfo(
-                user = null
+        // passing the user as a parameter to the second fragment
+        findNavController().navigate(
+            FirstFragmentDirections.firstToViewmodel(
+                user = user
             )
         )
     }
@@ -170,16 +237,17 @@ class FirstFragment : Fragment() {
     }
 
     fun applyAnimations() {
-        binding.mainImg.fadeIn( 0L)
-        binding.nameLayout.fadeIn( 300L)
-        binding.prenomLayout.fadeIn( 400L)
-        binding.emailLayout.fadeIn( 500L)
-        binding.dateLayout.fadeIn( 600L)
-        binding.phoneParentLayout.fadeIn( 700L)
-        binding.loginButton.fadeIn( 800L)
-        binding.infosButton.fadeIn( 900L)
-        binding.mainImg1.fadeIn( 1000L)
-        binding.mainImg2.fadeIn( 1100L)
+        binding.mainImg.fadeIn(0L)
+        binding.nameLayout.fadeIn(300L)
+        binding.prenomLayout.fadeIn(400L)
+        binding.emailLayout.fadeIn(500L)
+        binding.dateLayout.fadeIn(600L)
+        binding.phoneParentLayout.fadeIn(700L)
+        binding.loginButton.fadeIn(800L)
+        binding.infosButton.fadeIn(900L)
+        binding.firebaseButton.fadeIn(900L)
+        binding.mainImg1.fadeIn(1000L)
+        binding.mainImg2.fadeIn(1100L)
     }
 
     override fun onDestroyView() {
