@@ -12,6 +12,13 @@
         android:roundIcon="@drawable/rennes"
         android:supportsRtl="true"
         android:theme="@style/Theme.TP1SingleViewApp">
+        <service
+            android:name=".fcm.MyFirebaseMessagingService"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
         <activity
             android:name=".view.MainActivity"
             android:exported="true"

@@ -57,6 +57,9 @@ dependencies {
     implementation(libs.firebase.database.ktx)
     implementation(libs.firebase.auth.ktx)
     implementation(libs.kotlinx.coroutines.android)
+    implementation(libs.firebase.messaging)
+    implementation(libs.androidx.core.ktx.v1131)
+    implementation(libs.androidx.core)
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)

@@ -1,6 +1,7 @@
 package com.example.tp1singleviewapp.view
 
 import android.os.Bundle
+import android.util.Log
 import android.view.Gravity
 import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
@@ -14,6 +15,9 @@ import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.core.view.GravityCompat
 import com.example.tp1singleviewapp.R
 import com.example.tp1singleviewapp.databinding.ActivityMainBinding
+import com.google.firebase.FirebaseApp
+import com.google.firebase.messaging.FirebaseMessaging
+import com.google.firebase.messaging.FirebaseMessagingService
 
 class MainActivity : AppCompatActivity() {
 
@@ -29,6 +33,10 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         setSupportActionBar(binding.toolbar)
+
+        // initialize firebase for all the application
+        FirebaseApp.initializeApp(this)
+        getFirebaseToken()
 
         // drawerSetup()
 
@@ -63,6 +71,23 @@ class MainActivity : AppCompatActivity() {
         val navController = findNavController(R.id.nav_host_fragment_content_main)
         return navController.navigateUp(appBarConfiguration)
                 || super.onSupportNavigateUp()
+    }
+
+    fun getFirebaseToken() {
+        FirebaseMessaging.getInstance().token
+            .addOnCompleteListener { task ->
+                if (!task.isSuccessful) {
+                    Log.w("FCM", "Fetching FCM registration token failed", task.exception)
+                    return@addOnCompleteListener
+                }
+
+                // Get the new FCM registration token
+                val token = task.result
+                Log.d("FCCCCCCCCCCCCCCCM", "Current token: $token")
+
+                // Save to your server or database
+                // sendTokenToServer(token)
+            }
     }
 
 }
